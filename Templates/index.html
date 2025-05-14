@@ -1,1 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Ride Pricing</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        form { max-width: 400px; margin: auto; }
+        label { display: block; margin-top: 10px; }
+        input, select { width: 100%; padding: 8px; }
+        button { margin-top: 20px; padding: 10px; width: 100%; }
+    </style>
+</head>
+<body>
+    <h2>Dynamic Ride Price Predictor</h2>
+    <form action="/predict" method="post">
+        <label>Number of Riders:</label>
+        <input type="number" name="number_of_riders" required>
 
+        <label>Number of Drivers:</label>
+        <input type="number" name="number_of_drivers" required>
+
+        <label>Vehicle Type:</label>
+        <select name="vehicle_type">
+            <option value="Economy">Economy</option>
+            <option value="Premium">Premium</option>
+        </select>
+
+        <label>Expected Ride Duration (minutes):</label>
+        <input type="number" name="expected_ride_duration" required>
+
+        <button type="submit">Predict Price</button>
+    </form>
+
+    <h3>{{ prediction_text }}</h3>
+</body>
+</html>
